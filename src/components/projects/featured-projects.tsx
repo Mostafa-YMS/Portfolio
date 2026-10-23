@@ -79,30 +79,21 @@ export function ProjectCard({ project }: { project: Project }) {
           />
         </div>
       ) : (
-        <div className="hairline bg-surface-inset relative aspect-[16/9] w-full overflow-hidden border-b">
-          <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,color-mix(in_srgb,var(--glow)_14%,transparent)_0%,transparent_70%)]" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-2 text-center">
-              <div className="rounded-pill hairline bg-surface flex h-10 w-10 items-center justify-center border">
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="text-muted h-5 w-5">
-                  <path
-                    d="M4 7a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M9 11l2 2 4-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <p className="text-muted font-mono text-xs uppercase">Visual placeholder</p>
-            </div>
+        <div
+          className={cn("hairline relative aspect-[16/9] w-full overflow-hidden border-b", `project-art project-art-${project.category}`)}
+          aria-label={`Abstract visual for ${project.title}`}
+        >
+          <div className="project-art-top">
+            <span className="project-art-mark" aria-hidden="true">
+              {project.category === "editor" ? "▧" : project.category === "ai" ? "✳" : project.category === "web-app" ? "⌘" : project.category === "internal" ? "↗" : project.category === "design-system" ? "◈" : "✦"}
+            </span>
+            <span className="project-art-kicker">Selected work / 0{project.id.endsWith("editor") ? "1" : project.id.endsWith("platform") ? "2" : project.id.endsWith("frontend") ? "03" : "04"}</span>
+          </div>
+          <div className="relative z-10 mt-5">
+            <p className="project-art-kicker mb-2">{getCategoryLabel(project.category)} / Case study</p>
+            <p className="project-art-title">{project.title}</p>
+            <div className="project-art-bars" aria-hidden="true"><span /><span /><span /></div>
+            <div className="project-art-grid" aria-hidden="true"><span /><span /><span /></div>
           </div>
         </div>
       )}

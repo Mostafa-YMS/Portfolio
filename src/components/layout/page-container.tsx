@@ -12,7 +12,7 @@ export function PageContainer({ children, className, as: Component = "div" }: Pa
   return (
     <Component
       className={cn(
-        "max-w-content xs:px-5 mx-auto w-full px-4 sm:px-6 lg:px-8 xl:px-10",
+        "max-w-wide mx-auto w-full px-0",
         className,
       )}
     >
