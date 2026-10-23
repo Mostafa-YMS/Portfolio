@@ -14,54 +14,56 @@ export type EngineeringHighlight = {
 export const engineeringHighlights: EngineeringHighlight[] = [
   {
     id: "highlight-i18n-rtl",
-    title: "Arabic/English interfaces with RTL support",
+    title: "Supporting Arabic/English interfaces with RTL",
     problem:
-      "[PLACEHOLDER: PROBLEM - Describe a specific, verifiable scenario where you needed to support both LTR and RTL layouts.]",
+      "Supporting Arabic and English interfaces requires direction-aware layout behavior and consistent rendering across right-to-left and left-to-right locales.",
     constraints: [
-      "[PLACEHOLDER: CONSTRAINT 1 - e.g., Keep layout consistent across bidirectional text]",
-      "[PLACEHOLDER: CONSTRAINT 2 - e.g., Handle locale switching without layout shift]",
+      "Keep shared interface patterns consistent across locale directions.",
+      "Avoid introducing layout regressions when locale-dependent direction changes.",
     ],
     approach:
-      "[PLACEHOLDER: APPROACH - Describe your concrete decisions (directional CSS, logical properties, translation structure) without exposing internal details.]",
+      "Worked on localization and RTL/LTR layout support in React and Next.js applications, including locale-dependent layout and styling behavior.",
     tradeoffs: [
-      "[PLACEHOLDER: TRADEOFF - e.g., Choosing logical CSS properties over manual RTL overrides]",
+      "Direction-sensitive styling needs to stay consistent with shared component rules and design tokens.",
     ],
-    outcome: undefined,
-    technologies: ["React", "Next.js", "TypeScript", "i18n"],
-    draft: true,
-    verified: false,
+    technologies: ["React", "Next.js", "TypeScript", "next-intl", "RTL/LTR"],
+    draft: false,
+    verified: true,
   },
   {
     id: "highlight-editor-interactions",
-    title: "Interactive editor workflows",
+    title: "Building interactive editor workflows",
     problem:
-      "[PLACEHOLDER: PROBLEM - Describe a specific editor/workflow challenge you addressed.]",
+      "A presentation editor must support slide-level workflows alongside component-level editing, layout, and positioning.",
     constraints: [
-      "[PLACEHOLDER: CONSTRAINT - e.g., Preserve UI state and handle complex component interactions]",
+      "Keep slide navigation and CRUD workflows coherent with component editing.",
+      "Support responsive interactions without exposing proprietary product details.",
     ],
     approach:
-      "[PLACEHOLDER: APPROACH - Focus on architecture decisions (state structure, composition) rather than listing libraries.]",
+      "Implemented slide navigation and CRUD operations, component CRUD, and component layout and positioning. Optimistic updates were used for relevant slide operations.",
     tradeoffs: [
-      "[PLACEHOLDER: TRADEOFF - e.g., Balancing flexibility vs. complexity in component management]",
+      "Optimistic UI can improve perceived responsiveness, but it must be coordinated carefully with server-backed state and error handling.",
     ],
-    outcome: undefined,
-    technologies: ["React", "TypeScript", "Drag-and-Drop"],
-    draft: true,
-    verified: false,
+    technologies: ["React", "Next.js", "TypeScript", "Zustand", "React Query", "Drag-and-Drop"],
+    draft: false,
+    verified: true,
   },
   {
     id: "highlight-ai-streaming",
-    title: "Streaming AI chat interfaces",
-    problem: "[PLACEHOLDER: PROBLEM - Describe a verifiable challenge with streaming responses.]",
+    title: "Handling streaming AI chat interactions",
+    problem:
+      "Chat interfaces need to display incremental assistant responses while preserving a coherent conversation state and clear interaction states.",
     constraints: [
-      "[PLACEHOLDER: CONSTRAINT - e.g., Handle partial responses and maintain UX during streaming]",
+      "Handle partial response data while the assistant is still responding.",
+      "Keep send and stop interactions understandable during asynchronous work.",
     ],
     approach:
-      "[PLACEHOLDER: APPROACH - Describe how you structured state/updates for streamed content.]",
-    tradeoffs: ["[PLACEHOLDER: TRADEOFF - e.g., Trade-off between responsiveness and complexity]"],
-    outcome: undefined,
-    technologies: ["React", "Next.js", "TypeScript"],
-    draft: true,
-    verified: false,
+      "Worked on streaming chat UI and conversation state, including send/stop interactions and handling structured stream events where applicable.",
+    tradeoffs: [
+      "Frequent updates improve perceived responsiveness but require deliberate state and rendering boundaries.",
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "Server-Sent Events"],
+    draft: false,
+    verified: true,
   },
 ];
