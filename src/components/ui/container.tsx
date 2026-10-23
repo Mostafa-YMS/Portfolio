@@ -15,11 +15,11 @@ const sizeClasses: Record<ContainerSize, string> = {
   full: "max-w-none",
 };
 
-export function Container({ className, size = "default", ...props }: ContainerProps) {
+export function Container({ className, size = "wide", ...props }: ContainerProps) {
   return (
     <div
       className={cn(
-        "xs:px-5 mx-auto w-full px-4 sm:px-6 lg:px-8 xl:px-10",
+        "xs:px-5 mx-auto w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16",
         sizeClasses[size],
         className,
       )}

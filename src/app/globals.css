@@ -4,9 +4,9 @@
 @theme {
   --breakpoint-xs: 30rem;
 
-  --container-narrow: 48rem;
-  --container-content: 72rem;
-  --container-wide: 88rem;
+  --container-narrow: 56rem;
+  --container-content: 80rem;
+  --container-wide: 96rem;
 
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1.4;

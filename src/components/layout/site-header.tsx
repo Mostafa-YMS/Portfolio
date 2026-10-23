@@ -19,7 +19,7 @@ export function SiteHeader() {
 
   return (
     <header className="hairline bg-canvas/80 supports-[backdrop-filter]:bg-canvas/70 sticky top-0 z-40 border-b backdrop-blur">
-      <Container className="flex h-16 items-center justify-between gap-4">
+      <Container size="wide" className="flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <Link href="/#home" className="group flex items-center gap-2">
             <span className="rounded-pill hairline bg-surface inline-flex h-8 w-8 items-center justify-center border text-xs font-semibold">

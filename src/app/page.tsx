@@ -64,7 +64,7 @@ export default function HomePage() {
   return (
     <PageSection id="home" spacing="hero" className="relative">
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(60%_60%_at_50%_0%,color-mix(in_srgb,var(--glow)_18%,transparent)_0%,transparent_70%)]" />
-      <Container className="flex flex-col gap-12">
+      <Container size="wide" className="flex flex-col gap-12">
         <header className="flex max-w-4xl flex-col gap-6">
           {showAvailability ? (
             <p className="text-micro text-muted font-mono uppercase">

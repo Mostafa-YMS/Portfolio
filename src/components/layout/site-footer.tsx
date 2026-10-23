@@ -18,7 +18,7 @@ export function SiteFooter() {
 
   return (
     <footer className="hairline bg-canvas-subtle border-t">
-      <Container className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+      <Container size="wide" className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-2">
           <p className="text-sm font-medium">{displayName}</p>
           <p className="text-muted text-sm">
