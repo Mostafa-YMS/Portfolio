@@ -3,9 +3,14 @@ import type { ContactMethod, ExternalLink, ResumeMetadata } from "./types";
 export const contactMethods: ContactMethod[] = [
   {
     type: "email",
-    value: "mostafa.yms94@gmail.com",
-    href: "mailto:mostafa.yms94@gmail.com",
+    value: "mostafa.youssef.dev@gmail.com",
+    href: "mailto:mostafa.youssef.dev@gmail.com",
     label: "Email",
+  },
+  {
+    type: "location",
+    value: "Cairo, Egypt",
+    label: "Location",
   },
 ];
 
