@@ -1,112 +1,62 @@
-# Content Placeholders To Complete
+# Portfolio Content Completion Checklist
 
-Replace every `[PLACEHOLDER: ...]` with verified information before publishing. Fields marked **Required** must be filled; **Optional** can be omitted if not applicable. Do **not** invent values.
+The portfolio content has been populated from the professional details and resume provided. Review these items before publication.
 
-## Profile (`src/content/profile.ts`)
+## Required before launch
 
-| Field              | Status   | What to provide                                                                                    |
-| ------------------ | -------- | -------------------------------------------------------------------------------------------------- |
-| `displayName`      | Required | Your full name as you want it displayed.                                                           |
-| `preferredName`    | Optional | Name to use in casual contexts (if different).                                                     |
-| `subheadline`      | Optional | One short line that adds context (avoid buzzword stacking).                                        |
-| `summary`          | Required | Professional summary. Focus on what you build and who you help. No unverifiable claims or metrics. |
-| `location`         | Optional | City/country (e.g., "Cairo, Egypt"). Only include if you want it shown.                            |
-| `timezone`         | Optional | IANA timezone (e.g., "Africa/Cairo"). Useful for availability, not required.                       |
-| `availability`     | Required | `full-time` \| `contract` \| `freelance` \| `open` \| `unavailable`. Set to reflect reality.       |
-| `openToRelocation` | Required | `true`/`false`.                                                                                    |
-| `keyStrengths`     | Optional | Replace the 3 placeholders with your actual strengths, or remove items.                            |
+- [ ] Confirm the public headline, summary, and availability status.
+- [ ] Confirm that "Wakeb_data" is the employer name you want displayed publicly.
+- [ ] Review each role, responsibility, date, and metric for accuracy.
+- [ ] Review each project description and contribution for accuracy and confidentiality.
+- [ ] Confirm which sanitized case studies may be published. Proprietary projects should remain excluded from the sitemap and use noindex metadata.
+- [ ] Add the provided resume PDF as `public/resume.pdf`, then set `resumeMetadata.filePath` to `/resume.pdf` and `filename` to `Mostafa-Youssef-Resume.pdf` in `src/content/contact.ts`.
+- [ ] Confirm the public email address `mostafa.youssef.dev@gmail.com`.
+- [ ] Confirm the CS50x issuer/date and other certification details against the original credentials.
+- [ ] Set `NEXT_PUBLIC_SITE_URL` to the actual production URL before deployment.
+- [ ] Confirm whether you want your phone number displayed. It is present in the supplied resume but has not been added to the website.
+- [ ] Add your LinkedIn profile URL if you want it linked publicly.
 
-## Experience (`src/content/experience.ts`)
+## Optional improvements
 
-Add one entry per role you want to feature (or multiple). You currently have a single placeholder entry.
+- [ ] Add approved project screenshots with accurate alt text.
+- [ ] Add public demos or repositories only when the links are real and safe to share.
+- [ ] Add certificate verification links if available.
+- [ ] Add verifiable project outcomes only when you can substantiate and are permitted to disclose them.
 
-| Field            | Status   | What to provide                                                                                                |
-| ---------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `id`             | Required | Stable unique ID (e.g., `exp-acme-2024`).                                                                      |
-| `company`        | Required | Verified company name.                                                                                         |
-| `role`           | Required | Your job title.                                                                                                |
-| `startDate`      | Required | `YYYY-MM` or `YYYY`.                                                                                           |
-| `endDate`        | Optional | Omit or leave undefined if `current: true`. Use `YYYY-MM`/`YYYY` if ended.                                     |
-| `current`        | Required | `true` if ongoing.                                                                                             |
-| `location`       | Optional | Location or "Remote".                                                                                          |
-| `locationType`   | Optional | `onsite` \| `hybrid` \| `remote`.                                                                              |
-| `summary`        | Optional | Brief role summary. Avoid metrics.                                                                             |
-| `highlights[]`   | Required | Concrete, verifiable responsibilities/actions. Set `verified: true` only when confirmed. Replace placeholders. |
-| `technologies[]` | Optional | Technologies you actually used in this role.                                                                   |
+## Content source of truth
 
-## Projects (`src/content/projects.ts`)
+- `src/content/profile.ts` — headline, summary, location, focus areas, strengths.
+- `src/content/experience.ts` — employment history.
+- `src/content/projects.ts` — sanitized project descriptions and case studies.
+- `src/content/skills.ts` — categorized technical skills.
+- `src/content/education.ts` — education and certifications.
+- `src/content/contact.ts` — contact methods, public links, and resume metadata.
+- `src/content/highlights.ts` — engineering highlights.
 
-Add real projects. You currently have a single placeholder entry. For each project:
+## Integrity and privacy
 
-| Field              | Status   | What to provide                                                                                                                                     |
-| ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`               | Required | Stable unique ID.                                                                                                                                   |
-| `slug`             | Required | Kebab-case, stable for routes (e.g., `presentation-editor`). Never change after publishing.                                                         |
-| `title`            | Required | Project name.                                                                                                                                       |
-| `shortDescription` | Required | 1-2 sentence description of problem/context and approach. No unverifiable outcomes.                                                                 |
-| `longDescription`  | Optional | Longer description for case study page.                                                                                                             |
-| `year`             | Optional | Year of project/release.                                                                                                                            |
-| `role`             | Optional | Your role (e.g., "Frontend Engineer").                                                                                                              |
-| `team`             | Optional | "Solo" or team context.                                                                                                                             |
-| `category`         | Optional | `web-app` \| `ai` \| `editor` \| `design-system` \| `internal` \| `other`.                                                                          |
-| `stack`            | Required | Technologies used.                                                                                                                                  |
-| `links[]`          | Optional | Add only if you have permission to share. For `confidential: true`, prefer no public links. Use `type`: `live` \| `repo` \| `case-study` \| `demo`. |
-| `media[]`          | Optional | Screenshots. Provide accurate `alt` text. Only add images you have rights to use.                                                                   |
-| `featured`         | Required | `true` to surface on home page.                                                                                                                     |
-| `confidential`     | Required | `true` if code/details cannot be public.                                                                                                            |
-| `hasPublicRepo`    | Required | `true` only if repo is public and shareable.                                                                                                        |
-| `hasLiveDemo`      | Required | `true` only if live demo is public and shareable.                                                                                                   |
-| `highlights[]`     | Optional | Verified highlights. Mark `verified: true/false`.                                                                                                   |
-| `challenge`        | Optional | Verifiable problem statement.                                                                                                                       |
-| `approach`         | Optional | Your decisions/techniques.                                                                                                                          |
-| `learnings`        | Optional | Lessons learned (optional, avoid self-congratulatory metrics).                                                                                      |
-| `verified`         | Required | `true` only if all content for this project is verified and safe to publish.                                                                        |
+- Do not invent employers, titles, dates, metrics, users, revenue, education, certifications, or outcomes.
+- Distinguish personal contributions from team contributions.
+- Keep proprietary code, internal URLs, credentials, customer data, and confidential product details out of the public repository.
+- Use `confidential: true` for proprietary projects and omit public repository/demo links unless explicitly authorized.
+- Omit unknown optional fields instead of publishing placeholders.
+- Do not mark unverified claims as verified.
 
-## Skills (`src/content/skills.ts`)
+## Verification
 
-The list is pre-populated based on your background. Review and adjust:
+Review the configured GitHub Actions workflow and run the available project checks before merging:
 
-| Field         | Status   | What to provide                                             |
-| ------------- | -------- | ----------------------------------------------------------- |
-| `name`        | Required | Skill name.                                                 |
-| `category`    | Required | See `SkillCategory` in `types.ts`.                          |
-| `proficiency` | Optional | `expert` \| `proficifient` \| `familiar`. Only if accurate. |
-| `featured`    | Required | `true` to emphasize.                                        |
+```bash
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+```
 
-## Education & Certifications (`src/content/education.ts`)
+Search for leftover placeholders with:
 
-Currently empty. Add only if verified:
+```bash
+rg "\\[PLACEHOLDER" src/content
+```
 
-| Field              | Status   | What to provide                                                                                   |
-| ------------------ | -------- | ------------------------------------------------------------------------------------------------- |
-| **Education**      | Optional | `institution`, `degree`, `field`, `startYear`/`endYear`, `location`, `verified: true`.            |
-| **Certifications** | Optional | `name`, `issuer`, `issuedDate`, `expiresDate`, `credentialId`, `credentialUrl`, `verified: true`. |
-
----
-
-## Contact & Links (`src/content/contact.ts`)
-
-| Field | Status | What to provide |
-| --- : | --- | --- |
-| `contactMethods[]` email | Required | Your professional email address. Replace `mailto:[PLACEHOLDER: EMAIL_ADDRESS]` with the actual address. |
-| `contactMethods[]` location | Optional | Location if you want it displayed. |
-| `externalLinks[]` github | Required (if used) | Full GitHub URL and handle. |
-| `externalLinks[]` linkedin | Required (if used) | Full LinkedIn URL and handle. |
-| `externalLinks[]` other platforms | Optional | Add if desired (X/Bluesky/Mastodon/Medium/Devto/Stack Overflow/website). Only add verified URLs. |
-| `resumeMetadata.filePath` | Required | Path to resume in `public/` (currently `/resume.pdf`). Put the actual file there. |
-| `resumeMetadata.filename` | Required | Download filename (e)g., `Mostafa-Firstname-Lastname-Resume.pdf).}$ }{i; }$| |\(\]\)}\n| `resumeMetadata.version`/`lastUpdated` | Optional | Track versioning if desired. |
-
-## Action items checklist
-
-- [ ] Replace all `[PLACEHOLDER: YOUR_FULL_NAME]` etc. in `src/content/profile.ts`.
-- [ ] Replace all placeholders in `src/content/experience.ts` or add new verified entries.
-- [ ] Add real projects to `src/content/projects.ts` with stable slugs; mark confidential ones correctly.
-- [ [ ] Add verified education/certifications to `src/content/education.ts` if any, or leave empty.
-- [ ] Update `src/content/contact.ts` with real email, links, and put resume at `public/resume.pdf`.
-- [ ] Review `src/content/skills.ts` and adjust featured/proficiency as needed.
-- [ ] Search the repo for `[PLACEHOLDER` to ensure nothing remains before publication: `rg "\[PLACEHOLDER" src/content docs`.
-- [ ] Run `pnpm typecheck` after filling in content.
-- [ ] Only mark `verified: true` for facts you can confirm. Omit unverifiable claims/metrics.
-- [ ] Ensure no confidential business details or secrets are committed.
-
-**Reminder:** The site will render only what exists in these files. Empty arrays and omitted optional fields are fine; placeholders are not real content.
+Review any remaining matches before publication. Some component code intentionally handles placeholders; content data should not contain unfinished public copy.

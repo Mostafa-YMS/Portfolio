@@ -2,34 +2,60 @@ import type { Experience } from "./types";
 
 export const experiences: Experience[] = [
   {
-    id: "exp-[PLACEHOLDER: ID]",
-    company: "[PLACEHOLDER: COMPANY_NAME]",
-    role: "[PLACEHOLDER: JOB_TITLE]",
-    startDate: "[PLACEHOLDER: START_DATE YYYY-MM or YYYY]",
-    endDate: "[PLACEHOLDER: END_DATE YYYY-MM or YYYY]",
+    id: "exp-wakeb",
+    company: "Wakeb_data",
+    role: "Software Engineer",
+    startDate: "2024-11",
     current: true,
-    location: "[PLACEHOLDER: LOCATION]",
-    locationType: "hybrid",
     summary:
-      "[PLACEHOLDER: ROLE_SUMMARY - Focus on scope/responsibilities you can verify. Avoid metrics.]",
+      "Build and modernize production web applications and AI-powered product interfaces, collaborating with cross-functional teams to deliver product features and improve engineering workflows.",
     highlights: [
       {
-        text: "[PLACEHOLDER: HIGHLIGHT_1 - e.g., Modernized production web app using React/Next.js/TypeScript]",
-        verified: false,
+        text: "Collaborated with AI, UI/UX, and DevOps teams to design and deliver product features.",
+        verified: true,
       },
       {
-        text: "[PLACEHOLDER: HIGHLIGHT_2 - e.g., Implemented auth flows and Arabic/English i18n with RTL support]",
-        verified: false,
+        text: "Rebuilt a legacy PHP Blade admin panel in Next.js and resolved longstanding bugs.",
+        verified: true,
       },
       {
-        text: "[PLACEHOLDER: HIGHLIGHT_3 - e.g., Built streaming chat UI for AI-powered product]",
-        verified: false,
-      },
-      {
-        text: "[PLACEHOLDER: HIGHLIGHT_4 - e.g., Implemented slide/component management and DnD in presentation editor]",
-        verified: false,
+        text: "Automated deployment pipelines with shell scripting, reducing release time from 30 minutes to 5 minutes (an 83% reduction).",
+        verified: true,
       },
     ],
-    technologies: ["React", "Next.js", "TypeScript"],
+    technologies: ["React", "Next.js", "TypeScript", "PHP Blade", "Shell Scripting"],
+  },
+  {
+    id: "exp-pentavalue",
+    company: "Pentavalue",
+    role: "Software Engineer",
+    startDate: "2022-03",
+    endDate: "2024-11",
+    current: false,
+    summary:
+      "Contributed to full-stack SaaS product development, white-label deployments, production maintenance, and team mentorship.",
+    highlights: [
+      {
+        text: "Designed and implemented a multi-tenant SaaS platform from the ground up, with multiple white-label versions for different clients.",
+        verified: true,
+      },
+      {
+        text: "Mentored four junior developers and interns through code reviews and technical guidance.",
+        verified: true,
+      },
+      {
+        text: "Interviewed candidates and evaluated take-home assignments as part of the hiring process.",
+        verified: true,
+      },
+      {
+        text: "Collaborated with product owners, project managers, and UI/UX teams to define requirements and deliver features.",
+        verified: true,
+      },
+      {
+        text: "Maintained and extended production frontend and backend systems, resolving bugs and authoring deployment scripts.",
+        verified: true,
+      },
+    ],
+    technologies: ["React", "Next.js", "Node.js", "TypeScript", "SaaS", "Shell Scripting"],
   },
 ];

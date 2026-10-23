@@ -3,13 +3,13 @@ import type { ContactMethod, ExternalLink, ResumeMetadata } from "./types";
 export const contactMethods: ContactMethod[] = [
   {
     type: "email",
-    value: "[PLACEHOLDER: EMAIL_ADDRESS]",
-    href: "mailto:[PLACEHOLDER: EMAIL_ADDRESS]",
+    value: "mostafa.youssef.dev@gmail.com",
+    href: "mailto:mostafa.youssef.dev@gmail.com",
     label: "Email",
   },
   {
     type: "location",
-    value: "[PLACEHOLDER: CITY/COUNTRY]",
+    value: "Cairo, Egypt",
     label: "Location",
   },
 ];
@@ -17,22 +17,13 @@ export const contactMethods: ContactMethod[] = [
 export const externalLinks: ExternalLink[] = [
   {
     platform: "github",
-    href: "[PLACEHOLDER: GITHUB_URL]",
+    href: "https://github.com/Mostafa-YMS",
     label: "GitHub",
-    handle: "[PLACEHOLDER: GITHUB_HANDLE]",
-  },
-  {
-    platform: "linkedin",
-    href: "[PLACEHOLDER: LINKEDIN_URL]",
-    label: "LinkedIn",
-    handle: "[PLACEHOLDER: LINKEDIN_HANDLE]",
+    handle: "Mostafa-YMS",
   },
 ];
 
 export const resumeMetadata: ResumeMetadata = {
-  filePath: "/resume.pdf",
-  filename: "[PLACEHOLDER: RESUME_FILENAME e.g., First-Last-Resume.pdf]",
-  version: "[PLACEHOLDER: VERSION e.g., 2025-10]",
-  lastUpdated: "[PLACEHOLDER: YYYY-MM-DD]",
-  notes: "[PLACEHOLDER: NOTES about resume contents]",
+  filePath: "",
+  filename: "",
 };

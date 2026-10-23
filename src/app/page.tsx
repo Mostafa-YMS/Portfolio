@@ -29,24 +29,24 @@ const specialties = [
 ];
 
 export const metadata: Metadata = {
-  title: "Frontend Engineer — React, Next.js & TypeScript",
+  title: "Mostafa Youssef — Software Engineer | React, Next.js & AI",
   description:
-    "Frontend engineer specializing in React, Next.js, TypeScript, AI-powered web applications, design systems, and production-grade interfaces.",
+    "Software Engineer building modern web and AI products with React, Next.js, and TypeScript, with a focus on production interfaces and complex frontend workflows.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Frontend Engineer — React, Next.js & TypeScript",
+    title: "Mostafa Youssef — Software Engineer | React, Next.js & AI",
     description:
-      "Frontend engineer specializing in React, Next.js, TypeScript, AI-powered web applications, design systems, and production-grade interfaces.",
+      "Software Engineer building modern web and AI products with React, Next.js, and TypeScript.",
     type: "website",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Frontend Engineer — React, Next.js & TypeScript",
+    title: "Mostafa Youssef — Software Engineer | React, Next.js & AI",
     description:
-      "Frontend engineer specializing in React, Next.js, TypeScript, AI-powered web applications, design systems, and production-grade interfaces.",
+      "Software Engineer building modern web and AI products with React, Next.js, and TypeScript.",
   },
 };
 
@@ -81,14 +81,10 @@ export default function HomePage() {
           ) : null}
 
           <h1 className="text-display text-balance">
-            {displayName} — Frontend Engineer building production-grade web applications.
+            {displayName} — {profile.headline}
           </h1>
 
-          <p className="text-lede text-muted max-w-2xl text-pretty">
-            {profile.specialization}. I focus on robust React and Next.js interfaces, clear design
-            systems, reliable API integration, and pragmatic AI-powered features—built for
-            performance, accessibility, and maintainability.
-          </p>
+          <p className="text-lede text-muted max-w-2xl text-pretty">{profile.summary}</p>
 
           <div className="flex flex-wrap items-center gap-3">
             <Button asChild variant="primary">
