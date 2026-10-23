@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { PageSection } from "@/components/layout/page-container";
@@ -179,12 +180,13 @@ export default async function ProjectCaseStudyPage({
                   <div className="grid gap-4 sm:grid-cols-2">
                     {project.media!.map((media, index) => (
                       <figure key={index} className="hairline overflow-hidden rounded-2xl border">
-                        <img
+                        <Image
                           src={media.src}
                           alt={media.alt}
                           width={media.width || 1200}
                           height={media.height || 800}
                           className="h-full w-full object-cover"
+                          sizes="(max-width: 640px) 100vw, 50vw"
                         />
                       </figure>
                     ))}
