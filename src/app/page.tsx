@@ -137,7 +137,7 @@ export default function HomePage() {
                         : "Available"}
               </p>
             ) : null}
-            <h1 className="text-display text-balance">{displayName} <span className="text-accent">—</span> {profile.headline}</h1>
+            <h1 className="text-display text-balance">{displayName}<span className="mt-3 block text-2xl font-medium leading-tight tracking-tight text-muted sm:text-3xl lg:text-4xl"><span className="text-accent">— </span>{profile.headline}</span></h1>
             <p className="text-lede text-muted max-w-2xl text-pretty">{profile.summary}</p>
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <Button asChild variant="primary"><Link href="/#projects">Explore my work <span aria-hidden="true">↗</span></Link></Button>
