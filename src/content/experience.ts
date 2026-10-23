@@ -7,7 +7,6 @@ export const experiences: Experience[] = [
     role: "Software Engineer",
     startDate: "2024-11",
     current: true,
-    location: "Cairo, Egypt",
     summary:
       "Build and modernize production web applications and AI-powered product interfaces, collaborating with cross-functional teams to deliver product features and improve engineering workflows.",
     highlights: [
@@ -33,7 +32,6 @@ export const experiences: Experience[] = [
     startDate: "2022-03",
     endDate: "2024-11",
     current: false,
-    location: "Egypt",
     summary:
       "Contributed to full-stack SaaS product development, white-label deployments, production maintenance, and team mentorship.",
     highlights: [
