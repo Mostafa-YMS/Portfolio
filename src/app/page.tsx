@@ -29,8 +29,24 @@ const specialties = [
 ];
 
 export const metadata: Metadata = {
+  title: "Frontend Engineer — React, Next.js & TypeScript",
+  description:
+    "Frontend engineer specializing in React, Next.js, TypeScript, AI-powered web applications, design systems, and production-grade interfaces.",
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: "Frontend Engineer — React, Next.js & TypeScript",
+    description:
+      "Frontend engineer specializing in React, Next.js, TypeScript, AI-powered web applications, design systems, and production-grade interfaces.",
+    type: "website",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frontend Engineer — React, Next.js & TypeScript",
+    description:
+      "Frontend engineer specializing in React, Next.js, TypeScript, AI-powered web applications, design systems, and production-grade interfaces.",
   },
 };
 

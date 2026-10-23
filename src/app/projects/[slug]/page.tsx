@@ -12,7 +12,6 @@ import {
 import { Container } from "@/components/ui/container";
 import { projects } from "@/content";
 import { getAllProjectSlugs } from "@/lib/projects";
-import { siteUrl } from "@/lib/site";
 
 function isPlaceholderText(value: string | undefined): boolean {
   if (!value) return true;
@@ -42,26 +41,45 @@ export async function generateMetadata({
     };
   }
 
+  if (project.confidential || project.verified === false) {
+    return {
+      title: project.title,
+      robots: { index: false, follow: false },
+    };
+  }
+
   const title = project.title;
   const description = !isPlaceholderText(project.shortDescription)
     ? project.shortDescription
     : "Frontend engineering case study.";
 
+  if (isPlaceholderText(description)) {
+    return {
+      title: project.title,
+      robots: { index: false, follow: false },
+    };
+  }
+
   return {
     title,
     description,
     alternates: {
-      canonical: new URL(`/projects/${project.slug}`, siteUrl).toString(),
+      canonical: `/projects/${project.slug}`,
     },
     openGraph: {
       title,
       description,
       type: "article",
+      url: `/projects/${project.slug}`,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
