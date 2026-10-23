@@ -21,6 +21,12 @@ export const externalLinks: ExternalLink[] = [
     label: "GitHub",
     handle: "Mostafa-YMS",
   },
+  {
+    platform: "linkedin",
+    href: "https://www.linkedin.com/in/mostafa-youssef-dev/",
+    label: "LinkedIn",
+    handle: "mostafa-youssef-dev",
+  },
 ];
 
 export const resumeMetadata: ResumeMetadata = {
