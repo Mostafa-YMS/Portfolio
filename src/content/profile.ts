@@ -8,7 +8,7 @@ export const profile: Profile = {
   specialization:
     "Software Engineer focused on frontend architecture, production web applications, and AI-powered product experiences.",
   summary:
-    "I build and improve production web applications with React, Next.js, and TypeScript. My work focuses on complex interactive interfaces, reusable UI systems, API integration, application state, and reliable Arabic/English experiences. I have contributed to AI-powered product interfaces, streaming chat workflows, enterprise applications, and a presentation editor.",
+    "Software Engineer with 4 years of experience building and modernizing SaaS platforms, AI-driven applications, and responsive web systems using React, Next.js, and TypeScript. I focus on complex interactive interfaces, reusable UI systems, API integration, application state, and reliable Arabic/English experiences. My work includes legacy-to-Next.js modernization, streaming AI chat interfaces, enterprise applications, and interactive presentation editing.",
   location: "Cairo, Egypt",
   availability: "open",
   openToRemote: true,
