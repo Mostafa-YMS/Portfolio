@@ -57,6 +57,16 @@ pnpm typecheck
 pnpm build
 ```
 
+### Testing
+
+```bash
+# Run unit and component tests
+pnpm test
+
+# Run tests in watch mode
+pnpm test:watch
+```
+
 ## Content
 
 All content is in `src/content/` with TypeScript types. Replace placeholders with verified information:
