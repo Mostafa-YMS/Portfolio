@@ -1,17 +1,14 @@
 import type { Profile } from "./types";
 
 export const profile: Profile = {
-  displayName: "[PLACEHOLDER: YOUR_FULL_NAME]",
-  preferredName: "[PLACEHOLDER: PREFERRED_NAME]",
-  headline:
-    "Frontend Engineer specializing in React, Next.js, TypeScript, and AI-powered web applications.",
-  subheadline: "[PLACEHOLDER: SHORT_SUBHEADLINE]",
+  displayName: "Mostafa Youssef",
+  preferredName: "Mostafa",
+  headline: "Software Engineer building modern web and AI products.",
+  subheadline: "React · Next.js · TypeScript · Node.js · AI",
   specialization:
-    "Frontend Engineer specializing in React, Next.js, TypeScript, and AI-powered web applications.",
+    "Software Engineer focused on frontend architecture, production web applications, and AI-powered product experiences.",
   summary:
-    "[PLACEHOLDER: PROFESSIONAL_SUMMARY - Write in first person or third person. Focus on what you build and who you help. Do not add unverifiable claims.].",
-  location: "[PLACEHOLDER: CITY/COUNTRY e.g., Cairo, Egypt]",
-  timezone: "[PLACEHOLDER: TIMEZONE e.g., Africa/Cairo]",
+    "I build and improve production web applications with React, Next.js, and TypeScript. My work focuses on complex interactive interfaces, reusable UI systems, API integration, application state, and reliable Arabic/English experiences. I have contributed to AI-powered product interfaces, streaming chat workflows, enterprise applications, and a presentation editor.",
   availability: "open",
   openToRelocation: false,
   openToRemote: true,
@@ -20,18 +17,18 @@ export const profile: Profile = {
     { name: "Arabic", proficiency: "professional" },
   ],
   focusAreas: [
-    "React and Next.js interfaces",
-    "TypeScript and design systems",
-    "API integration and state management",
-    "Authentication flows",
-    "Arabic/English internationalization and RTL layouts",
-    "AI-powered products and streaming chat interfaces",
-    "Presentation/editor experiences (slides/components/drag-and-drop)",
-    "Complex forms and dynamic fields",
+    "React and Next.js application engineering",
+    "TypeScript and reusable UI architecture",
+    "API integration and application state",
+    "AI-powered interfaces and streaming chat",
+    "Interactive presentation editing and slide management",
+    "Arabic/English internationalization and RTL/LTR layouts",
+    "Complex forms and dynamic validation",
+    "SSR, hydration, and frontend integration debugging",
   ],
   keyStrengths: [
-    "[PLACEHOLDER: STRENGTH_1]",
-    "[PLACEHOLDER: STRENGTH_2]",
-    "[PLACEHOLDER: STRENGTH_3]",
+    "Building complex, production-ready React and Next.js interfaces",
+    "Turning intricate product workflows into maintainable UI architecture",
+    "Debugging state, rendering, and internationalization issues across applications",
   ],
 };
