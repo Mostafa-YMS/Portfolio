@@ -1,8 +1,63 @@
 import type { Experience } from "./types";
 
-/**
- * Add employment entries once the exact job title, employer, and dates
- * have been confirmed for public use. Project contributions are described
- * separately in projects.ts until those details are verified.
- */
-export const experiences: Experience[] = [];
+export const experiences: Experience[] = [
+  {
+    id: "exp-wakeb",
+    company: "Wakeb_data",
+    role: "Software Engineer",
+    startDate: "2024-11",
+    current: true,
+    location: "Cairo, Egypt",
+    summary:
+      "Build and modernize production web applications and AI-powered product interfaces, collaborating with cross-functional teams to deliver product features and improve engineering workflows.",
+    highlights: [
+      {
+        text: "Collaborated with AI, UI/UX, and DevOps teams to design and deliver product features.",
+        verified: true,
+      },
+      {
+        text: "Rebuilt a legacy PHP Blade admin panel in Next.js and resolved longstanding bugs.",
+        verified: true,
+      },
+      {
+        text: "Automated deployment pipelines with shell scripting, reducing release time from 30 minutes to 5 minutes (an 83% reduction).",
+        verified: true,
+      },
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "PHP Blade", "Shell Scripting"],
+  },
+  {
+    id: "exp-pentavalue",
+    company: "Pentavalue",
+    role: "Software Engineer",
+    startDate: "2022-03",
+    endDate: "2024-11",
+    current: false,
+    location: "Egypt",
+    summary:
+      "Contributed to full-stack SaaS product development, white-label deployments, production maintenance, and team mentorship.",
+    highlights: [
+      {
+        text: "Designed and implemented a multi-tenant SaaS platform from the ground up, with multiple white-label versions for different clients.",
+        verified: true,
+      },
+      {
+        text: "Mentored four junior developers and interns through code reviews and technical guidance.",
+        verified: true,
+      },
+      {
+        text: "Interviewed candidates and evaluated take-home assignments as part of the hiring process.",
+        verified: true,
+      },
+      {
+        text: "Collaborated with product owners, project managers, and UI/UX teams to define requirements and deliver features.",
+        verified: true,
+      },
+      {
+        text: "Maintained and extended production frontend and backend systems, resolving bugs and authoring deployment scripts.",
+        verified: true,
+      },
+    ],
+    technologies: ["React", "Next.js", "Node.js", "TypeScript", "SaaS", "Shell Scripting"],
+  },
+];
