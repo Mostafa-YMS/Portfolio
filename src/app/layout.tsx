@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { SkipLink } from "@/components/layout/skip-link";
@@ -65,7 +66,7 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={siteConfig.language} className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="flex min-h-svh flex-col antialiased">
