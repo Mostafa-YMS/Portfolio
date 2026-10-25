@@ -272,65 +272,6 @@
 
 .section-shell {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--section-accent) 20%, var(--line-strong));
-  border-radius: clamp(1.25rem, 2.5vw, 2rem);
-  padding: clamp(1.25rem, 3.5vw, 2.75rem);
-  background:
-    radial-gradient(
-      80% 100% at 0% 0%,
-      color-mix(in srgb, var(--section-accent) 11%, transparent) 0%,
-      transparent 62%
-    ),
-    radial-gradient(
-      72% 90% at 100% 0%,
-      color-mix(in srgb, var(--section-accent-2) 8%, transparent) 0%,
-      transparent 58%
-    ),
-    color-mix(in srgb, var(--surface) 94%, var(--canvas));
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--ink-strong) 8%, transparent),
-    0 60px 140px -110px color-mix(in srgb, var(--section-accent) 70%, transparent);
-}
-
-.section-shell::before {
-  content: "";
-  position: absolute;
-  inset-inline: 8%;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--section-accent) 80%, transparent),
-    color-mix(in srgb, var(--section-accent-2) 55%, transparent),
-    transparent
-  );
-  opacity: 0.85;
-  pointer-events: none;
-}
-
-.section-shell::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    color-mix(in srgb, var(--section-accent) 28%, transparent) 1px,
-    transparent 0
-  );
-  background-size: 26px 26px;
-  opacity: 0.2;
-  -webkit-mask-image: radial-gradient(80% 80% at 100% 0%, black, transparent 66%);
-  mask-image: radial-gradient(80% 80% at 100% 0%, black, transparent 66%);
-}
-
-.section-shell > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Section headings ------------------------------------------------------ */
@@ -1440,10 +1381,6 @@
 
   .showcase-float-stack {
     right: -0.2rem;
-  }
-
-  .section-shell {
-    border-radius: 1.1rem;
   }
 
   .card-index {

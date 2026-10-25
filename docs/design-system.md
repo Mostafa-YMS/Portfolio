@@ -151,7 +151,7 @@ Use `SkipLink` (`src/components/layout/skip-link.tsx`) at the top of `body`. Use
 - **Tailwind first**: Use utilities with token colors; avoid hardcoded hex values unless they are part of a token definition.
 - **Borders**: Use `hairline` (thin `var(--line)`) for subtle separation and `hairline-strong` for stronger emphasis.
 - **Surfaces**: Use `Card` variants (`default`, `raised`, `subtle`, `outline`) so tone-aware borders and backgrounds stay consistent.
-- **Section color**: Wrap each content section in `.section-shell tone-blue`. Keep the blue accent across the hero and all content sections; use `--tone-blue-2` only for same-hue gradient endpoints.
+- **Section color**: Wrap each content section in `.section-shell tone-blue`. Keep the blue accent across the hero and all content sections; use `--tone-blue-2` only for same-hue gradient endpoints. Section shells are flat wrappers: borders, backgrounds, and elevation belong to cards only.
 - **Purposeful effects**: Glows, gradients, and motion should reinforce hierarchy or interaction. Avoid stacking multiple ambient animations on one element, and keep body copy on solid surfaces.
 
 ## Demo
