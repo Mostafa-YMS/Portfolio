@@ -30,6 +30,6 @@ export const externalLinks: ExternalLink[] = [
 ];
 
 export const resumeMetadata: ResumeMetadata = {
-  filePath: "",
-  filename: "",
+  filePath: "/resume/Mostafa_Youssef_Software_Engineer.pdf",
+  filename: "Mostafa_Youssef_Software_Engineer.pdf",
 };
