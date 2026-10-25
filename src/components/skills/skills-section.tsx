@@ -36,9 +36,16 @@ const skillSections: SkillSection[] = [
   {
     id: "data",
     title: "State management and data fetching",
-    description: "Application state, APIs, and data flow.",
+    description: "Client-side state, server data, and API consumption in frontend applications.",
     glyph: "⇄",
-    categories: ["state-data", "backend-api"],
+    categories: ["state-data"],
+  },
+  {
+    id: "backend",
+    title: "Backend and API fundamentals",
+    description: "Practical full-stack experience with backend maintenance, Node.js, and data fundamentals.",
+    glyph: "⌘",
+    categories: ["backend-api"],
   },
   {
     id: "forms",
@@ -120,8 +127,8 @@ export function SkillsSection() {
         <p className="section-eyebrow">Skills</p>
         <h2 className="section-title text-heading text-balance">Technical skills</h2>
         <p className="text-lede text-muted max-w-2xl text-pretty">
-          Focused on frontend engineering for production web applications, with emphasis on
-          reliability, accessibility, and maintainability.
+          Focused on frontend engineering for production web applications, with practical full-stack
+          experience in backend maintenance and API-connected SaaS products.
         </p>
       </header>
 
