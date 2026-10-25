@@ -17,8 +17,15 @@ export function SiteFooter() {
   const links = externalLinks.filter((link) => isValidHref(link.href));
 
   return (
-    <footer className="hairline bg-canvas-subtle border-t">
-      <Container size="wide" className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="hairline bg-canvas-subtle relative border-t">
+      <div
+        className="via-tone-blue pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent to-transparent opacity-70"
+        aria-hidden="true"
+      />
+      <Container
+        size="wide"
+        className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between"
+      >
         <div className="flex flex-col gap-2">
           <p className="text-sm font-medium">{displayName}</p>
           <p className="text-muted text-sm">
@@ -31,8 +38,8 @@ export function SiteFooter() {
             <a
               href={email.href}
               className={cn(
-                "text-muted duration-medium text-sm transition-[color,opacity] ease-out",
-                "hover:text-ink focus-visible:ring-focus focus-visible:ring-offset-canvas-subtle focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
+                "footer-link text-muted text-sm",
+                "focus-visible:ring-focus focus-visible:ring-offset-canvas-subtle focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
               )}
             >
               {email.label}
@@ -46,8 +53,8 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "text-muted duration-medium text-sm transition-[color,opacity] ease-out",
-                "hover:text-ink focus-visible:ring-focus focus-visible:ring-offset-canvas-subtle focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
+                "footer-link text-muted text-sm",
+                "focus-visible:ring-focus focus-visible:ring-offset-canvas-subtle focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
               )}
             >
               {link.label}

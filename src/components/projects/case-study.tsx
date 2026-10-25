@@ -13,6 +13,7 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { projects } from "@/content";
 import { cn } from "@/lib/cn";
+import { revealDelay } from "@/lib/tone";
 import type { Project } from "@/content/types";
 
 function isValidHref(href: string | undefined): href is string {
@@ -50,23 +51,23 @@ export function CaseStudyHeader({ project }: { project: Project }) {
   const isDraft = isPlaceholderText(project.title) || project.verified === false;
 
   return (
-    <header className="flex flex-col gap-6">
+    <header className="flex flex-col gap-6" data-reveal>
       <div className="flex flex-wrap items-center gap-2">
-        <span className="hairline rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+        <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
           {getCategoryLabel(project.category)}
         </span>
         {project.year ? (
-          <span className="hairline rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+          <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
             {project.year}
           </span>
         ) : null}
         {project.confidential ? (
-          <span className="hairline-strong rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+          <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
             Proprietary / Private
           </span>
         ) : null}
         {isDraft ? (
-          <span className="hairline rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+          <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
             Draft
           </span>
         ) : null}
@@ -103,9 +104,9 @@ export function CaseStudyMeta({ project }: { project: Project }) {
   }
 
   return (
-    <Card variant="default">
+    <Card variant="default" className="tone-blue card-hover" data-reveal>
       <CardHeader>
-        <p className="text-micro text-muted font-mono uppercase">Overview</p>
+        <p className="section-eyebrow">Overview</p>
         <CardTitle>Project details</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-4 sm:grid-cols-2">
@@ -129,10 +130,7 @@ export function CaseStudyMeta({ project }: { project: Project }) {
             <p className="text-sm font-medium">Technologies</p>
             <ul className="mt-2 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
-                <li
-                  key={tech}
-                  className="hairline rounded-pill text-muted border px-2.5 py-1 text-xs"
-                >
+                <li key={tech} className="tone-chip rounded-pill px-2.5 py-1 text-xs">
                   {tech}
                 </li>
               ))}
@@ -154,9 +152,9 @@ export function CaseStudySection({
   className?: string;
 }) {
   return (
-    <section className={cn("flex flex-col gap-4", className)}>
+    <section className={cn("flex flex-col gap-4", className)} data-reveal>
       <header className="flex flex-col gap-2">
-        <h2 className="text-heading text-balance">{title}</h2>
+        <h2 className="section-title text-heading text-balance">{title}</h2>
       </header>
       <div className="text-body text-muted flex flex-col gap-4">{children}</div>
     </section>
@@ -177,9 +175,9 @@ export function CaseStudyLinks({ project }: { project: Project }) {
   }
 
   return (
-    <Card variant="default">
+    <Card variant="default" className="tone-blue card-hover" data-reveal>
       <CardHeader>
-        <p className="text-micro text-muted font-mono uppercase">Links</p>
+        <p className="section-eyebrow">Links</p>
         <CardTitle>Explore</CardTitle>
         <CardDescription>
           Public links only. Private/proprietary resources are not exposed.
@@ -217,16 +215,22 @@ export function RelatedProjects({ current }: { current: Project }) {
   return (
     <Section spacing="default">
       <Container>
-        <div className="flex flex-col gap-6">
-          <header className="flex flex-col gap-2">
-            <p className="text-micro text-muted font-mono uppercase">Related</p>
-            <h2 className="text-heading text-balance">More projects</h2>
+        <div className="section-shell tone-blue flex flex-col gap-6">
+          <header className="flex flex-col gap-2" data-reveal>
+            <p className="section-eyebrow">Related</p>
+            <h2 className="section-title text-heading text-balance">More projects</h2>
           </header>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((project) => (
-              <Card key={project.id} variant="default">
+            {related.map((project, index) => (
+              <Card
+                key={project.id}
+                variant="default"
+                className="tone-blue card-hover"
+                data-reveal
+                style={revealDelay(index)}
+              >
                 <CardHeader>
-                  <p className="text-micro text-muted font-mono uppercase">
+                  <p className="tone-chip text-micro rounded-pill w-fit px-2.5 py-1 font-mono uppercase">
                     {getCategoryLabel(project.category)}
                   </p>
                   <CardTitle className="text-xl">{project.title}</CardTitle>

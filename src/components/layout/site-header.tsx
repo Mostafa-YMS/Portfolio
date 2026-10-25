@@ -10,6 +10,7 @@ const navItems = [
   { href: "/#projects", label: "Projects" },
   { href: "/#experience", label: "Experience" },
   { href: "/#skills", label: "Skills" },
+  { href: "/#highlights", label: "Highlights" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 
@@ -18,11 +19,11 @@ export function SiteHeader() {
   const displayName = profile.preferredName || profile.displayName;
 
   return (
-    <header className="hairline bg-canvas/80 supports-[backdrop-filter]:bg-canvas/70 sticky top-0 z-40 border-b backdrop-blur">
+    <header className="site-header hairline bg-canvas/80 supports-[backdrop-filter]:bg-canvas/70 sticky top-0 z-40 border-b backdrop-blur">
       <Container size="wide" className="flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <Link href="/#home" className="group flex items-center gap-2">
-            <span className="rounded-pill hairline bg-surface inline-flex h-8 w-8 items-center justify-center border text-xs font-semibold">
+            <span className="logo-mark rounded-pill inline-flex h-8 w-8 items-center justify-center border text-xs font-semibold">
               {displayName
                 .split(/\s+/)
                 .filter(Boolean)
@@ -33,13 +34,13 @@ export function SiteHeader() {
             <span className="text-sm font-medium tracking-tight">{displayName}</span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-pill text-muted duration-medium px-3 py-1.5 text-sm transition-[color,background-color] ease-out",
+                  "nav-link rounded-pill text-muted duration-medium px-3 py-1.5 text-sm transition-[color,background-color] ease-out",
                   "hover:bg-surface-raised hover:text-ink focus-visible:ring-focus focus-visible:ring-offset-canvas focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none",
                 )}
               >
@@ -58,7 +59,7 @@ export function SiteHeader() {
             </Button>
           ) : null}
 
-          <details className="group relative md:hidden">
+          <details className="group relative lg:hidden">
             <summary
               className={cn(
                 "rounded-pill hairline bg-surface flex h-9 cursor-pointer items-center gap-2 border px-3 text-sm",

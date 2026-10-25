@@ -20,10 +20,10 @@ const paddingClasses: Record<CardPadding, string> = {
 };
 
 const variantClasses: Record<CardVariant, string> = {
-  default: "border hairline bg-surface shadow-none",
-  raised: "border hairline bg-surface-raised shadow-soft",
-  subtle: "border hairline bg-surface-inset",
-  outline: "border hairline-strong bg-transparent",
+  default: "card-surface border shadow-none",
+  raised: "card-surface-raised border shadow-soft",
+  subtle: "card-surface-inset border",
+  outline: "card-outline border bg-transparent",
 };
 
 export function Card({ className, variant = "default", padding = "default", ...props }: CardProps) {

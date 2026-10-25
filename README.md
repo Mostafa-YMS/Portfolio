@@ -18,12 +18,12 @@ The portfolio demonstrates production frontend engineering work, including React
 - **Professional experience** - Timeline of work history with engineering contributions
 - **Technical skills** - Categorized skills emphasizing core strengths
 - **Engineering highlights** - Concrete examples of technical problem-solving
-- **Contact section** - Email, professional links, and contact form with validation
+- **Contact section** - Email, professional links, location, and resume download in one panel
 - **Resume** - Configurable PDF download
 - **SEO** - Sitemap, robots.txt, canonical URLs, Open Graph metadata
 - **Accessibility** - Semantic HTML, keyboard navigation, focus states, reduced motion support
 - **Responsive design** - Mobile-first, works across screen sizes
-- **Dark-first theme** - With light mode compatibility
+- **Light and dark themes** - Follows the system color-scheme preference
 
 ## Technology Stack
 
@@ -40,7 +40,6 @@ The portfolio demonstrates production frontend engineering work, including React
 ```
 src/
 ├── app/              # Next.js App Router pages and routes
-│   ├── api/contact/  # Contact form API route
 │   ├── projects/     # Project case study pages
 │   └── layout.tsx    # Root layout
 ├── components/       # React components
@@ -83,6 +82,7 @@ The site will be available at [http://localhost:3000](http://localhost:3000).
 ## Environment Variable Configuration
 
 1. Copy the example environment file:
+
 ```bash
 cp .env.example .env.local
 ```
@@ -90,17 +90,10 @@ cp .env.example .env.local
 2. Configure required variables:
 
 **Required:**
+
 - `NEXT_PUBLIC_SITE_URL` - Production site URL for canonical links and sitemap (e.g., `https://yourdomain.com`)
 
-**Optional (for contact form):**
-See `.env.example` for configuration options:
-- Resend API key and email addresses
-- SendGrid API key and email addresses
-- Custom webhook URL
-- Spam protection (Cloudflare Turnstile, reCAPTCHA)
-- Honeypot field name
-
-**Important:** Server-side secrets (API keys) must never be exposed to client-side code. The `NEXT_PUBLIC_` prefix is only for values safe to expose to the browser.
+No server-side secrets are required. Contact happens through direct email and professional links.
 
 ## Production Build
 
@@ -118,7 +111,7 @@ pnpm build
 pnpm start
 ```
 
-The build outputs static pages where possible and uses server rendering for the contact API route.
+The build is static-first and prerenders pages where possible.
 
 ## Testing
 
@@ -142,6 +135,7 @@ This is a Next.js App Router application that can be deployed to platforms suppo
 - [Cloudflare Pages](https://pages.cloudflare.com/)
 
 **Deployment steps:**
+
 1. Push repository to Git provider
 2. Import project to hosting platform
 3. Set environment variables (at minimum `NEXT_PUBLIC_SITE_URL`)
@@ -152,17 +146,21 @@ Ensure `NEXT_PUBLIC_SITE_URL` is set to your actual production domain for correc
 ## Asset and Resume Configuration
 
 ### Resume
-Place your resume PDF at `public/resume.pdf`, or update `resumeMetadata` in `src/content/contact.ts` to point to a different path or URL. The resume download button only appears when a valid resume is configured.
+
+Place your resume PDF at `public/resume/Mostafa_Youssef_Software_Engineer.pdf`, or update `resumeMetadata` in `src/content/contact.ts` to point to a different path or URL. The resume download button only appears when a valid resume is configured.
 
 ### Images
+
 Project images can be added to `public/projects/` and referenced in `src/content/projects.ts`. Use descriptive alt text for accessibility.
 
 ### Favicon
+
 Add your favicon to `src/app/` or `public/` following Next.js conventions.
 
 ## Contact Information Placeholders
 
 Contact details are managed in `src/content/contact.ts` and `src/content/profile.ts`. Replace placeholders with actual information:
+
 - Email address
 - Professional social links (GitHub, LinkedIn, etc.)
 - Location (optional)

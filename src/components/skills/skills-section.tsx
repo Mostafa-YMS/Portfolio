@@ -1,11 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { skills } from "@/content";
+import { revealDelay } from "@/lib/tone";
 import type { Skill } from "@/content/types";
 
 type SkillSection = {
   id: string;
   title: string;
   description: string;
+  glyph: string;
   categories: Array<Skill["category"] | "special">;
 };
 
@@ -14,48 +16,56 @@ const skillSections: SkillSection[] = [
     id: "core",
     title: "Core frontend",
     description: "Languages and fundamentals I rely on daily.",
+    glyph: "{ }",
     categories: ["languages"],
   },
   {
     id: "frameworks",
     title: "Frameworks and rendering",
     description: "Production frameworks and rendering approaches.",
+    glyph: "⚛",
     categories: ["frameworks"],
   },
   {
     id: "ui",
     title: "UI engineering and design systems",
     description: "Reusable components, styling, and design system patterns.",
+    glyph: "◈",
     categories: ["ui"],
   },
   {
     id: "data",
     title: "State management and data fetching",
     description: "Application state, APIs, and data flow.",
+    glyph: "⇄",
     categories: ["state-data", "backend-api"],
   },
   {
     id: "forms",
     title: "Forms and validation",
     description: "Complex forms, dynamic fields, and interactive workflows.",
+    glyph: "▤",
     categories: ["forms-interactions"],
   },
   {
     id: "product",
     title: "Product engineering",
     description: "Pragmatic features for real products and AI-powered interfaces.",
+    glyph: "✳",
     categories: ["ai"],
   },
   {
     id: "i18n",
     title: "Internationalization and accessibility",
     description: "Multilingual interfaces, RTL layouts, and accessible patterns.",
+    glyph: "⊕",
     categories: ["auth-i18n"],
   },
   {
     id: "tools",
     title: "Development tools",
     description: "Everyday tooling that supports reliable delivery.",
+    glyph: "⌘",
     categories: ["tooling"],
   },
 ];
@@ -83,9 +93,9 @@ export function SkillsSection() {
   if (sections.length === 0) {
     return (
       <div className="flex flex-col gap-6">
-        <header className="flex flex-col gap-3">
-          <p className="text-micro text-muted font-mono uppercase">Skills</p>
-          <h2 className="text-heading text-balance">Technical skills</h2>
+        <header className="flex flex-col gap-3" data-reveal>
+          <p className="section-eyebrow">Skills</p>
+          <h2 className="section-title text-heading text-balance">Technical skills</h2>
           <p className="text-lede text-muted max-w-2xl text-pretty">
             Skills will appear here once added to the typed content model.
           </p>
@@ -106,9 +116,9 @@ export function SkillsSection() {
 
   return (
     <div className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <p className="text-micro text-muted font-mono uppercase">Skills</p>
-        <h2 className="text-heading text-balance">Technical skills</h2>
+      <header className="flex flex-col gap-3" data-reveal>
+        <p className="section-eyebrow">Skills</p>
+        <h2 className="section-title text-heading text-balance">Technical skills</h2>
         <p className="text-lede text-muted max-w-2xl text-pretty">
           Focused on frontend engineering for production web applications, with emphasis on
           reliability, accessibility, and maintainability.
@@ -116,19 +126,16 @@ export function SkillsSection() {
       </header>
 
       {coreSkills.length > 0 ? (
-        <Card variant="raised">
+        <Card variant="raised" className="tone-blue card-hover" data-reveal style={revealDelay(0)}>
           <CardHeader>
-            <p className="text-micro text-muted font-mono uppercase">Core strengths</p>
+            <p className="section-eyebrow">Core strengths</p>
             <CardTitle>Strongest technologies</CardTitle>
             <CardDescription>Technologies I reach for to ship production work.</CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="flex flex-wrap gap-2">
               {coreSkills.map((skill) => (
-                <li
-                  key={skill.name}
-                  className="hairline-strong rounded-pill text-ink border px-3 py-1 text-sm"
-                >
+                <li key={skill.name} className="tone-chip rounded-pill px-3 py-1 text-sm">
                   {skill.name}
                 </li>
               ))}
@@ -138,9 +145,23 @@ export function SkillsSection() {
       ) : null}
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {sections.map((section) => (
-          <Card key={section.id} variant="default" className="h-full">
+        {sections.map((section, index) => (
+          <Card
+            key={section.id}
+            variant="default"
+            className="tone-blue card-hover h-full"
+            data-reveal
+            style={revealDelay(index + 1)}
+          >
             <CardHeader>
+              <div className="flex items-start justify-between gap-3">
+                <span className="skill-glyph" aria-hidden="true">
+                  {section.glyph}
+                </span>
+                <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
+                  {section.items.length} skills
+                </span>
+              </div>
               <CardTitle className="text-xl">{section.title}</CardTitle>
               <CardDescription>{section.description}</CardDescription>
             </CardHeader>
@@ -149,7 +170,7 @@ export function SkillsSection() {
                 {section.items.map((skill) => (
                   <li
                     key={skill.name}
-                    className="hairline rounded-pill text-muted border px-2.5 py-1 text-sm"
+                    className="tone-chip rounded-pill px-2.5 py-1 text-sm"
                     aria-label={skill.name}
                   >
                     {skill.name}

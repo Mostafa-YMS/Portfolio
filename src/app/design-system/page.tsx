@@ -36,6 +36,11 @@ const palette = [
   { name: "line", variable: "--line" },
   { name: "accent", variable: "--accent" },
   { name: "accent-subtle", variable: "--accent-subtle" },
+  { name: "tone-blue", variable: "--tone-blue" },
+  { name: "tone-blue-2", variable: "--tone-blue-2" },
+  { name: "success", variable: "--success" },
+  { name: "warning", variable: "--warning" },
+  { name: "danger", variable: "--danger" },
 ] as const;
 
 const typeScale = [
@@ -71,7 +76,7 @@ export default function DesignSystemPage() {
         <Container>
           <PageHeading
             eyebrow="Design System"
-            title="Premium, dark-first, engineering-focused."
+            title="Premium, engineering-focused, one blue tone."
             description="Semantic tokens, typographic rhythm, and restrained primitives built to scale across the portfolio without adding a second styling system."
           />
         </Container>
@@ -80,11 +85,11 @@ export default function DesignSystemPage() {
       <Section spacing="default">
         <Container>
           <header className="flex flex-col gap-3">
-            <p className="text-micro text-muted font-mono uppercase">Tokens</p>
-            <h2 className="text-heading text-balance">Color palette</h2>
+            <p className="section-eyebrow">Tokens</p>
+            <h2 className="section-title text-heading text-balance">Color palette</h2>
             <p className="text-lede text-muted max-w-2xl text-pretty">
-              Dark mode is exposed by default via system preference. Light mode remains supported at
-              the token level.
+              Light and dark palettes follow the system preference. The portfolio uses a single blue
+              brand tone with same-hue gradients.
             </p>
           </header>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -111,8 +116,8 @@ export default function DesignSystemPage() {
       <Section spacing="default">
         <Container>
           <header className="flex flex-col gap-3">
-            <p className="text-micro text-muted font-mono uppercase">Typography</p>
-            <h2 className="text-heading text-balance">Responsive type scale</h2>
+            <p className="section-eyebrow">Typography</p>
+            <h2 className="section-title text-heading text-balance">Responsive type scale</h2>
             <p className="text-lede text-muted max-w-2xl text-pretty">
               Fluid sizing with tight tracking for display and headings, relaxed line height for
               body copy.
@@ -135,8 +140,10 @@ export default function DesignSystemPage() {
       <Section spacing="default">
         <Container>
           <header className="flex flex-col gap-3">
-            <p className="text-micro text-muted font-mono uppercase">Components</p>
-            <h2 className="text-heading text-balance">Buttons, cards, and section headings</h2>
+            <p className="section-eyebrow">Components</p>
+            <h2 className="section-title text-heading text-balance">
+              Buttons, cards, and section headings
+            </h2>
             <p className="text-lede text-muted max-w-2xl text-pretty">
               Accessible by default with visible focus states and reduced-motion support.
             </p>

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { projects } from "@/content";
 import { cn } from "@/lib/cn";
+import { revealDelay } from "@/lib/tone";
 import type { Project } from "@/content/types";
 
 function isValidHref(href: string | undefined): href is string {
@@ -44,7 +45,7 @@ function getCategoryLabel(category: Project["category"]): string {
   }
 }
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({ project, index = 0 }: { project: Project; index?: number }) {
   const isDraft = isPlaceholderText(project.title) || project.verified === false;
   const hasMedia = project.media && project.media.length > 0 && project.media[0];
   const media = hasMedia ? project.media![0] : undefined;
@@ -63,8 +64,10 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card
       variant="raised"
+      data-reveal
+      style={revealDelay(index)}
       className={cn(
-        "duration-medium hover:shadow-soft relative flex h-full flex-col overflow-hidden transition-transform ease-out hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+        "project-card card-hover group tone-blue relative flex h-full flex-col overflow-hidden",
         isDraft && "opacity-90",
       )}
     >
@@ -75,41 +78,73 @@ export function ProjectCard({ project }: { project: Project }) {
             alt={media.alt}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         </div>
       ) : (
         <div
-          className={cn("hairline relative aspect-[16/9] w-full overflow-hidden border-b", `project-art project-art-${project.category}`)}
-          aria-label={`Abstract visual for ${project.title}`}
+          className={cn(
+            "hairline project-art relative aspect-[16/9] w-full overflow-hidden border-b",
+          )}
+          aria-hidden="true"
         >
           <div className="project-art-top">
             <span className="project-art-mark" aria-hidden="true">
-              {project.category === "editor" ? "▧" : project.category === "ai" ? "✳" : project.category === "web-app" ? "⌘" : project.category === "internal" ? "↗" : project.category === "design-system" ? "◈" : "✦"}
+              {project.category === "editor"
+                ? "▧"
+                : project.category === "ai"
+                  ? "✳"
+                  : project.category === "web-app"
+                    ? "⌘"
+                    : project.category === "internal"
+                      ? "↗"
+                      : project.category === "design-system"
+                        ? "◈"
+                        : "✦"}
             </span>
-            <span className="project-art-kicker">Selected work / 0{project.id.endsWith("editor") ? "1" : project.id.endsWith("platform") ? "2" : project.id.endsWith("frontend") ? "03" : "04"}</span>
+            <span className="project-art-kicker">
+              Selected work / 0
+              {project.id.endsWith("editor")
+                ? "1"
+                : project.id.endsWith("platform")
+                  ? "2"
+                  : project.id.endsWith("frontend")
+                    ? "03"
+                    : "04"}
+            </span>
           </div>
           <div className="relative z-10 mt-5">
-            <p className="project-art-kicker mb-2">{getCategoryLabel(project.category)} / Case study</p>
+            <p className="project-art-kicker mb-2">
+              {getCategoryLabel(project.category)} / Case study
+            </p>
             <p className="project-art-title">{project.title}</p>
-            <div className="project-art-bars" aria-hidden="true"><span /><span /><span /></div>
-            <div className="project-art-grid" aria-hidden="true"><span /><span /><span /></div>
+            <div className="project-art-bars" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="project-art-grid" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
           </div>
         </div>
       )}
 
       <CardHeader className="flex-1">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="hairline rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+          <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
+            <span className="h-1 w-1 rounded-full bg-current" aria-hidden="true" />
             {getCategoryLabel(project.category)}
           </span>
           {project.confidential ? (
-            <span className="hairline-strong rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+            <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
               Proprietary / Private
             </span>
           ) : null}
           {isDraft ? (
-            <span className="hairline rounded-pill text-micro text-muted border px-2.5 py-1 font-mono uppercase">
+            <span className="tone-chip text-micro rounded-pill px-2.5 py-1 font-mono uppercase">
               Draft
             </span>
           ) : null}
@@ -122,7 +157,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </CardDescription>
         {contribution ? (
           <p className="text-caption text-muted">
-            <span className="text-ink">Contribution:</span> {contribution}
+            <span className="text-ink font-medium">Contribution:</span> {contribution}
           </p>
         ) : null}
       </CardHeader>
@@ -131,10 +166,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.stack.length > 0 ? (
           <ul className="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
-              <li
-                key={tech}
-                className="hairline rounded-pill text-muted border px-2.5 py-1 text-xs"
-              >
+              <li key={tech} className="tone-chip rounded-pill px-2.5 py-1 text-xs">
                 {tech}
               </li>
             ))}
@@ -144,7 +176,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <CardFooter className="mt-auto">
         {showCaseStudy && caseStudyLink ? (
-          <Button asChild variant="primary" size="sm">
+          <Button asChild variant="primary" size="sm" className="mt-5">
             <a href={caseStudyLink.href}>{caseStudyLink.label || "View case study"}</a>
           </Button>
         ) : null}
@@ -178,9 +210,9 @@ export function FeaturedProjects() {
   if (!hasRealProjects) {
     return (
       <div className="flex flex-col gap-4">
-        <header className="flex flex-col gap-3">
-          <p className="text-micro text-muted font-mono uppercase">Projects</p>
-          <h2 className="text-heading text-balance">Featured work</h2>
+        <header className="flex flex-col gap-3" data-reveal>
+          <p className="section-eyebrow">Projects</p>
+          <h2 className="section-title text-heading text-balance">Featured work</h2>
           <p className="text-lede text-muted max-w-2xl text-pretty">
             Projects will appear here once added to the content model with verified details.
           </p>
@@ -205,17 +237,17 @@ export function FeaturedProjects() {
 
   return (
     <div className="flex flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <p className="text-micro text-muted font-mono uppercase">Projects</p>
-        <h2 className="text-heading text-balance">Featured work</h2>
+      <header className="flex flex-col gap-3" data-reveal>
+        <p className="section-eyebrow">Projects</p>
+        <h2 className="section-title text-heading text-balance">Featured work</h2>
         <p className="text-lede text-muted max-w-2xl text-pretty">
           Selected engineering work focused on production interfaces, complex workflows, and
           pragmatic AI integrations.
         </p>
       </header>
       <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {featured.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {featured.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </div>

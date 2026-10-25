@@ -4,8 +4,8 @@ This document defines the design tokens, primitives, and conventions used in thi
 
 ## Principles
 
-- **Dark-first**: The site defaults to a refined dark palette. A light palette is defined at the token level and is compatible via `prefers-color-scheme`. Dark mode is what is currently exposed.
-- **Engineering-focused**: Restrained color, strong hierarchy, generous whitespace, and purposeful motion.
+- **System-aware theme**: Refined light and dark palettes are defined at the token level and switch automatically via `prefers-color-scheme`.
+- **Engineering-focused**: Strong hierarchy, generous whitespace, a consistent brand accent across content sections, and purposeful motion.
 - **Accessible by default**: Meet WCAG AA for text, communicate meaning without relying on color alone, respect `prefers-reduced-motion`, and always provide visible focus states.
 - **Composable**: Prefer Server Components and small client islands. Primitives compose via props, not global overrides.
 - **Token-driven**: All colors, radii, shadows, and timing come from CSS custom properties in `src/app/globals.css`.
@@ -16,27 +16,41 @@ Tokens live in `src/app/globals.css` under `@theme` and `:root` / `@media (prefe
 
 ### Color
 
-| Token              | Purpose                               | Light                    | Dark                     |
-| ------------------ | ------------------------------------- | ------------------------ | ------------------------ |
-| `--canvas`         | Page background                       | `#f7f7f5`                | `#0b0b0d`                |
-| `--canvas-subtle`  | Subtle background regions             | `#f4f4f2`                | `#101012`                |
-| `--surface`        | Default cards/sections                | `#ffffff`                | `#141417`                |
-| `--surface-raised` | Elevated surfaces/cards               | `#ffffff`                | `#19191d`                |
-| `--surface-inset`  | Inset/interactive surfaces            | `#f6f6f4`                | `#101012`                |
-| `--overlay`        | Modal/backdrop scrims                 | `rgba(17,17,19,0.4)`     | `rgba(5,5,7,0.6)`        |
-| `--ink`            | Primary text                          | `#151513`                | `#f5f5f7`                |
-| `--ink-strong`     | Emphasized text/headings              | `#10100d`                | `#ffffff`                |
-| `--muted`          | Secondary/supporting text             | `#5f5f57`                | `#b9b9c3`                |
-| `--subtle`         | Tertiary/metadata text                | `#7a7a70`                | `#8f8f9b`                |
-| `--line`           | Hairline borders/dividers             | `rgba(21,21,19,0.08)`    | `rgba(245,245,247,0.08)` |
-| `--line-strong`    | Stronger borders/focus-adjacent rules | `rgba(21,21,19,0.14)`    | `rgba(245,245,247,0.16)` |
-| `--accent`         | Interactive accent                    | `#8b8bff`                | `#9b9bff`                |
-| `--accent-ink`     | Text on accent surfaces               | `#f7f7ff`                | `#0b0b16`                |
-| `--accent-subtle`  | Accent tints/selection                | `rgba(139,139,255,0.16)` | `rgba(155,155,255,0.22)` |
-| `--focus`          | Focus ring color                      | `#9b9bff`                | `#b5b5ff`                |
-| `--glow`           | Ambient background glow               | `rgba(139,139,255,0.14)` | `rgba(155,155,255,0.24)` |
+| Token              | Purpose                               | Light                  | Dark                     |
+| ------------------ | ------------------------------------- | ---------------------- | ------------------------ |
+| `--canvas`         | Page background                       | `#f8f7fb`              | `#08080c`                |
+| `--canvas-subtle`  | Subtle background regions             | `#f1f0f7`              | `#0d0d13`                |
+| `--surface`        | Default cards/sections                | `#ffffff`              | `#121218`                |
+| `--surface-raised` | Elevated surfaces/cards               | `#ffffff`              | `#181820`                |
+| `--surface-inset`  | Inset/interactive surfaces            | `#f5f4fa`              | `#0c0c11`                |
+| `--overlay`        | Modal/backdrop scrims                 | `rgba(17,17,19,0.4)`   | `rgba(5,5,7,0.65)`       |
+| `--ink`            | Primary text                          | `#16161c`              | `#f7f7fb`                |
+| `--ink-strong`     | Emphasized text/headings              | `#0c0c12`              | `#ffffff`                |
+| `--muted`          | Secondary/supporting text             | `#4e4e5a`              | `#c4c4d0`                |
+| `--subtle`         | Tertiary/metadata text                | `#666674`              | `#a2a2b2`                |
+| `--line`           | Hairline borders/dividers             | `rgba(22,22,28,0.10)`  | `rgba(247,247,251,0.12)` |
+| `--line-strong`    | Stronger borders/focus-adjacent rules | `rgba(22,22,28,0.20)`  | `rgba(247,247,251,0.22)` |
+| `--accent`         | Interactive accent                    | `#1d4ed8`              | `#60a5fa`                |
+| `--accent-ink`     | Text on accent surfaces               | `#ffffff`              | `#07101f`                |
+| `--accent-subtle`  | Accent tints/selection                | `rgba(29,78,216,0.12)` | `rgba(96,165,250,0.20)`  |
+| `--success`        | Success states                        | `#047857`              | `#4ade80`                |
+| `--warning`        | Warning states                        | `#a16207`              | `#fbbf24`                |
+| `--danger`         | Error states                          | `#b91c1c`              | `#f87171`                |
+| `--focus`          | Focus ring color                      | `#2563eb`              | `#93c5fd`                |
+| `--glow`           | Ambient background glow               | `rgba(29,78,216,0.14)` | `rgba(96,165,250,0.28)`  |
 
-Tailwind color names (from `@theme inline`): `canvas`, `canvas-subtle`, `surface`, `surface-raised`, `surface-inset`, `overlay`, `ink`, `ink-strong`, `muted`, `subtle`, `line`, `line-strong`, `accent`, `accent-ink`, `accent-subtle`, `success`, `warning`, `focus`, `glow`.
+Tailwind color names (from `@theme inline`): `canvas`, `canvas-subtle`, `surface`, `surface-raised`, `surface-inset`, `overlay`, `ink`, `ink-strong`, `muted`, `subtle`, `line`, `line-strong`, `accent`, `accent-ink`, `accent-subtle`, `success`, `warning`, `danger`, `focus`, `glow`, `tone-blue`, `tone-blue-2`.
+
+### Section tones
+
+The portfolio uses a single blue brand tone. Add `tone-blue` to each `.section-shell` wrapper, including the hero. Gradients stay within the same hue by pairing `--tone-blue` with `--tone-blue-2`. Cards inherit the nearest `--section-accent`; do not add per-card accent tones.
+
+| Tone class    | Light     | Dark      | Used by                                      |
+| ------------- | --------- | --------- | -------------------------------------------- |
+| `tone-blue`   | `#1d4ed8` | `#60a5fa` | Hero, all content sections, case studies     |
+| `tone-blue-2` | `#3b82f6` | `#93c5fd` | Gradient endpoint for accents and highlights |
+
+Tone-aware helpers: `.section-shell`, `.section-eyebrow`, `.section-title`, `.tone-chip`, `.focus-tile`, `.specialty-chip`, `.card-surface`, `.card-surface-raised`, `.card-hover`, `.highlight-item`, `.detail-item`, `.outcome-panel`, `.timeline-dot`.
 
 ### Typography
 
@@ -48,7 +62,7 @@ Fluid scales are defined in `@theme`. Use the utility classes below for consiste
 | `text-heading` | `clamp(1.875rem, 4vw, 3rem)`    | 600    | -0.035em | 1.08        | Section titles, card titles         |
 | `text-lede`    | `clamp(1.125rem, 2vw, 1.25rem)` | 400    | -0.015em | 1.8         | Intro paragraphs, card descriptions |
 | `text-body`    | `1rem`                          | 400    | -0.01em  | 1.8         | Body text, lists                    |
-| `text-caption` | `0.875rem`                      | 400    | -0.01em  | 1.6         | Supporting text, form hints         |
+| `text-caption` | `0.875rem`                      | 400    | -0.01em  | 1.6         | Supporting text, metadata           |
 | `text-eyebrow` | `0.75rem`                       | 500    | 0.16em   | 1.4         | Overline labels                     |
 | `text-micro`   | `0.8125rem`                     | 500    | 0.14em   | 1.6         | Metadata, tags, tiny labels         |
 | `font-mono`    | —                               | —      | —        | —           | Labels, metadata, code snippets     |
@@ -78,6 +92,16 @@ Utility helpers: `text-balance` (headings/hero), `text-pretty` (paragraphs).
 | `duration-slow`   | 320ms                             | Larger motions (rare)                           |
 | `ease-out`        | `cubic-bezier(0.25,0.8,0.25,1)`   | Default easing                                  |
 | `ease-spring`     | `cubic-bezier(0.25,0.8,0.25,1.2)` | Subtle springy motion (use sparingly)           |
+
+### Motion
+
+Motion is CSS-first and progressive:
+
+- **Scroll reveal**: add `data-reveal` to a section header or card and optionally `style={revealDelay(index)}` for stagger. `RevealOnScroll` marks below-the-fold elements as pending after hydration and reveals them with `IntersectionObserver`. Content is visible without JavaScript.
+- **Ambient motion**: hero orbs, showcase drift, section eyebrow pulses, timeline pings, and the hero gradient use slow, low-amplitude keyframes. Avoid adding more than one continuous animation to a single element.
+- **Interaction motion**: cards lift and gain a tone glow on hover, chips nudge upward, buttons run a single shine sweep, and timeline dots pulse.
+- **Reduced motion**: the global `prefers-reduced-motion` block disables reveal animations, ambient loops, and transitions. Never gate content behind motion.
+- **Stagger**: use `revealDelay(index)` from `src/lib/tone.ts` with a 70ms step; keep groups under ~500ms total.
 
 ## Primitives
 
@@ -126,8 +150,9 @@ Use `SkipLink` (`src/components/layout/skip-link.tsx`) at the top of `body`. Use
 - **Client boundaries**: Keep primitives as Server Components. Only mark components as `"use client"` if they require state, event handlers, or browser APIs. Keep them small and leaf-level.
 - **Tailwind first**: Use utilities with token colors; avoid hardcoded hex values unless they are part of a token definition.
 - **Borders**: Use `hairline` (thin `var(--line)`) for subtle separation and `hairline-strong` for stronger emphasis.
-- **Surfaces**: Prefer `bg-surface` for content, `bg-surface-raised` for elevated cards, `bg-surface-inset` for subtle groups.
-- **Don't chase effects**: Avoid large shadows, heavy blurs, glassmorphism, or neon glows outside the subtle ambient glow already defined.
+- **Surfaces**: Use `Card` variants (`default`, `raised`, `subtle`, `outline`) so tone-aware borders and backgrounds stay consistent.
+- **Section color**: Wrap each content section in `.section-shell tone-blue`. Keep the blue accent across the hero and all content sections; use `--tone-blue-2` only for same-hue gradient endpoints.
+- **Purposeful effects**: Glows, gradients, and motion should reinforce hierarchy or interaction. Avoid stacking multiple ambient animations on one element, and keep body copy on solid surfaces.
 
 ## Demo
 

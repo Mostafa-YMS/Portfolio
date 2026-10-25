@@ -26,8 +26,8 @@ export function SectionHeading({
       )}
       {...props}
     >
-      {eyebrow ? <p className="text-micro text-muted font-mono uppercase">{eyebrow}</p> : null}
-      <h2 className="text-heading text-balance">{title}</h2>
+      {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
+      <h2 className="section-title text-heading text-balance">{title}</h2>
       {description ? (
         <p className="text-lede text-muted max-w-2xl text-pretty">{description}</p>
       ) : null}
@@ -50,8 +50,8 @@ export function PageHeading({
 }: PageHeadingProps) {
   return (
     <header className={cn("flex flex-col gap-6", className)} {...props}>
-      {eyebrow ? <p className="text-micro text-muted font-mono uppercase">{eyebrow}</p> : null}
-      <h1 className="text-display max-w-5xl text-balance">{title}</h1>
+      {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
+      <h1 className="section-title text-display max-w-5xl text-balance">{title}</h1>
       {description ? (
         <p className="text-lede text-muted max-w-2xl text-pretty">{description}</p>
       ) : null}

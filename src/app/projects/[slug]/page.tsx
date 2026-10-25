@@ -11,6 +11,7 @@ import {
   RelatedProjects,
 } from "@/components/projects/case-study";
 import { Container } from "@/components/ui/container";
+import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { projects } from "@/content";
 import { getAllProjectSlugs } from "@/lib/projects";
 
@@ -113,7 +114,8 @@ export default async function ProjectCaseStudyPage({
 
   return (
     <>
-      <PageSection spacing="hero">
+      <PageSection spacing="hero" className="tone-blue relative overflow-hidden">
+        <RevealOnScroll />
         <Container className="flex flex-col gap-10">
           <CaseStudyHeader project={project} />
 
@@ -198,9 +200,9 @@ export default async function ProjectCaseStudyPage({
             <aside className="flex flex-col gap-6">
               <CaseStudyMeta project={project} />
               <CaseStudyLinks project={project} />
-              <div className="hairline bg-surface rounded-2xl border p-6">
-                <p className="text-micro text-muted font-mono uppercase">Notes</p>
-                <p className="text-muted mt-2 text-sm">
+              <div className="card-surface rounded-2xl border p-6" data-reveal>
+                <p className="section-eyebrow">Notes</p>
+                <p className="text-muted mt-3 text-sm">
                   Outcomes and metrics are only shown when verifiably provided. If none are listed,
                   no quantitative claims are made.
                 </p>

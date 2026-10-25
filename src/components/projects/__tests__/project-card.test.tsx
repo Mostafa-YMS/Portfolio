@@ -30,7 +30,7 @@ const mockProject: Project = {
 describe("ProjectCard", () => {
   it("renders project title", () => {
     render(<ProjectCard project={mockProject} />);
-    expect(screen.getByText("Test Project")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /test project/i })).toBeInTheDocument();
   });
 
   it("renders category", () => {
