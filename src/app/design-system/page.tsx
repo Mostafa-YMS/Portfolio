@@ -88,8 +88,8 @@ export default function DesignSystemPage() {
             <p className="section-eyebrow">Tokens</p>
             <h2 className="section-title text-heading text-balance">Color palette</h2>
             <p className="text-lede text-muted max-w-2xl text-pretty">
-              Light and dark palettes follow the system preference. The portfolio uses a single blue
-              brand tone with same-hue gradients.
+              A dark-only palette anchored in a single blue brand tone with same-hue gradients.
+              Surfaces, borders, and text stay within one refined set of semantic tokens.
             </p>
           </header>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">

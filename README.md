@@ -23,7 +23,7 @@ The portfolio demonstrates production frontend engineering work, including React
 - **SEO** - Sitemap, robots.txt, canonical URLs, Open Graph metadata
 - **Accessibility** - Semantic HTML, keyboard navigation, focus states, reduced motion support
 - **Responsive design** - Mobile-first, works across screen sizes
-- **Light and dark themes** - Follows the system color-scheme preference
+- **Dark-only theme** - A refined dark palette with a single blue brand tone
 
 ## Technology Stack
 

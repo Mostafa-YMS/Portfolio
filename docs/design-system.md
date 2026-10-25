@@ -4,7 +4,7 @@ This document defines the design tokens, primitives, and conventions used in thi
 
 ## Principles
 
-- **System-aware theme**: Refined light and dark palettes are defined at the token level and switch automatically via `prefers-color-scheme`.
+- **Dark-only theme**: A single refined dark palette is defined at the token level. The site does not ship a light mode.
 - **Engineering-focused**: Strong hierarchy, generous whitespace, a consistent brand accent across content sections, and purposeful motion.
 - **Accessible by default**: Meet WCAG AA for text, communicate meaning without relying on color alone, respect `prefers-reduced-motion`, and always provide visible focus states.
 - **Composable**: Prefer Server Components and small client islands. Primitives compose via props, not global overrides.
@@ -12,32 +12,32 @@ This document defines the design tokens, primitives, and conventions used in thi
 
 ## Tokens
 
-Tokens live in `src/app/globals.css` under `@theme` and `:root` / `@media (prefers-color-scheme: dark)`. Access them via Tailwind color/shadow/radius utilities or `var(...)`.
+Tokens live in `src/app/globals.css` under `@theme` and `:root`. Access them via Tailwind color/shadow/radius utilities or `var(...)`.
 
 ### Color
 
-| Token              | Purpose                               | Light                  | Dark                     |
-| ------------------ | ------------------------------------- | ---------------------- | ------------------------ |
-| `--canvas`         | Page background                       | `#f8f7fb`              | `#08080c`                |
-| `--canvas-subtle`  | Subtle background regions             | `#f1f0f7`              | `#0d0d13`                |
-| `--surface`        | Default cards/sections                | `#ffffff`              | `#121218`                |
-| `--surface-raised` | Elevated surfaces/cards               | `#ffffff`              | `#181820`                |
-| `--surface-inset`  | Inset/interactive surfaces            | `#f5f4fa`              | `#0c0c11`                |
-| `--overlay`        | Modal/backdrop scrims                 | `rgba(17,17,19,0.4)`   | `rgba(5,5,7,0.65)`       |
-| `--ink`            | Primary text                          | `#16161c`              | `#f7f7fb`                |
-| `--ink-strong`     | Emphasized text/headings              | `#0c0c12`              | `#ffffff`                |
-| `--muted`          | Secondary/supporting text             | `#4e4e5a`              | `#c4c4d0`                |
-| `--subtle`         | Tertiary/metadata text                | `#666674`              | `#a2a2b2`                |
-| `--line`           | Hairline borders/dividers             | `rgba(22,22,28,0.10)`  | `rgba(247,247,251,0.12)` |
-| `--line-strong`    | Stronger borders/focus-adjacent rules | `rgba(22,22,28,0.20)`  | `rgba(247,247,251,0.22)` |
-| `--accent`         | Interactive accent                    | `#1d4ed8`              | `#60a5fa`                |
-| `--accent-ink`     | Text on accent surfaces               | `#ffffff`              | `#07101f`                |
-| `--accent-subtle`  | Accent tints/selection                | `rgba(29,78,216,0.12)` | `rgba(96,165,250,0.20)`  |
-| `--success`        | Success states                        | `#047857`              | `#4ade80`                |
-| `--warning`        | Warning states                        | `#a16207`              | `#fbbf24`                |
-| `--danger`         | Error states                          | `#b91c1c`              | `#f87171`                |
-| `--focus`          | Focus ring color                      | `#2563eb`              | `#93c5fd`                |
-| `--glow`           | Ambient background glow               | `rgba(29,78,216,0.14)` | `rgba(96,165,250,0.28)`  |
+| Token              | Purpose                               | Value                    |
+| ------------------ | ------------------------------------- | ------------------------ |
+| `--canvas`         | Page background                       | `#08080c`                |
+| `--canvas-subtle`  | Subtle background regions             | `#0d0d13`                |
+| `--surface`        | Default cards/sections                | `#121218`                |
+| `--surface-raised` | Elevated surfaces/cards               | `#181820`                |
+| `--surface-inset`  | Inset/interactive surfaces            | `#0c0c11`                |
+| `--overlay`        | Modal/backdrop scrims                 | `rgba(5,5,7,0.65)`       |
+| `--ink`            | Primary text                          | `#f7f7fb`                |
+| `--ink-strong`     | Emphasized text/headings              | `#ffffff`                |
+| `--muted`          | Secondary/supporting text             | `#c4c4d0`                |
+| `--subtle`         | Tertiary/metadata text                | `#a2a2b2`                |
+| `--line`           | Hairline borders/dividers             | `rgba(247,247,251,0.12)` |
+| `--line-strong`    | Stronger borders/focus-adjacent rules | `rgba(247,247,251,0.22)` |
+| `--accent`         | Interactive accent                    | `#60a5fa`                |
+| `--accent-ink`     | Text on accent surfaces               | `#07101f`                |
+| `--accent-subtle`  | Accent tints/selection                | `rgba(96,165,250,0.20)`  |
+| `--success`        | Success states                        | `#4ade80`                |
+| `--warning`        | Warning states                        | `#fbbf24`                |
+| `--danger`         | Error states                          | `#f87171`                |
+| `--focus`          | Focus ring color                      | `#93c5fd`                |
+| `--glow`           | Ambient background glow               | `rgba(96,165,250,0.28)`  |
 
 Tailwind color names (from `@theme inline`): `canvas`, `canvas-subtle`, `surface`, `surface-raised`, `surface-inset`, `overlay`, `ink`, `ink-strong`, `muted`, `subtle`, `line`, `line-strong`, `accent`, `accent-ink`, `accent-subtle`, `success`, `warning`, `danger`, `focus`, `glow`, `tone-blue`, `tone-blue-2`.
 
@@ -45,10 +45,12 @@ Tailwind color names (from `@theme inline`): `canvas`, `canvas-subtle`, `surface
 
 The portfolio uses a single blue brand tone. Add `tone-blue` to each `.section-shell` wrapper, including the hero. Gradients stay within the same hue by pairing `--tone-blue` with `--tone-blue-2`. Cards inherit the nearest `--section-accent`; do not add per-card accent tones.
 
-| Tone class    | Light     | Dark      | Used by                                      |
-| ------------- | --------- | --------- | -------------------------------------------- |
-| `tone-blue`   | `#1d4ed8` | `#60a5fa` | Hero, all content sections, case studies     |
-| `tone-blue-2` | `#3b82f6` | `#93c5fd` | Gradient endpoint for accents and highlights |
+The hero name uses the lighter same-hue gradient (`--ink-strong` → `--tone-blue` → `--tone-blue-2`) to anchor the page while staying within the single blue tone.
+
+| Tone class    | Value     | Used by                                      |
+| ------------- | --------- | -------------------------------------------- |
+| `tone-blue`   | `#60a5fa` | Hero, all content sections, case studies     |
+| `tone-blue-2` | `#93c5fd` | Gradient endpoint for accents and highlights |
 
 Tone-aware helpers: `.section-shell`, `.section-eyebrow`, `.section-title`, `.tone-chip`, `.focus-tile`, `.specialty-chip`, `.card-surface`, `.card-surface-raised`, `.card-hover`, `.highlight-item`, `.detail-item`, `.outcome-panel`, `.timeline-dot`.
 

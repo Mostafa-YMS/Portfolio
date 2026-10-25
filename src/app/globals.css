@@ -45,69 +45,39 @@
 }
 
 /*
- * System-aware semantic palette with light and dark modes.
+ * Dark-only semantic palette.
  * All colors meet WCAG AA for their intended roles. The blue tone palette
  * gives every section and card one consistent accent while preserving contrast.
  */
 :root {
-  --canvas: #f8f7fb;
-  --canvas-subtle: #f1f0f7;
-  --surface: #ffffff;
-  --surface-raised: #ffffff;
-  --surface-inset: #f5f4fa;
-  --overlay: rgba(17, 17, 19, 0.4);
-  --ink: #16161c;
-  --ink-strong: #0c0c12;
-  --muted: #4e4e5a;
-  --subtle: #666674;
-  --line: rgba(22, 22, 28, 0.1);
-  --line-strong: rgba(22, 22, 28, 0.2);
-  --accent: #1d4ed8;
-  --accent-ink: #ffffff;
-  --accent-subtle: rgba(29, 78, 216, 0.12);
-  --success: #047857;
-  --warning: #a16207;
-  --danger: #b91c1c;
-  --focus: #2563eb;
-  --glow: rgba(29, 78, 216, 0.14);
-  --shadow: 0 60px 120px -80px rgba(22, 22, 28, 0.4);
-  --shadow-soft: 0 40px 80px -60px rgba(22, 22, 28, 0.35);
+  --canvas: #08080c;
+  --canvas-subtle: #0d0d13;
+  --surface: #121218;
+  --surface-raised: #181820;
+  --surface-inset: #0c0c11;
+  --overlay: rgba(5, 5, 7, 0.65);
+  --ink: #f7f7fb;
+  --ink-strong: #ffffff;
+  --muted: #c4c4d0;
+  --subtle: #a2a2b2;
+  --line: rgba(247, 247, 251, 0.12);
+  --line-strong: rgba(247, 247, 251, 0.22);
+  --accent: #60a5fa;
+  --accent-ink: #07101f;
+  --accent-subtle: rgba(96, 165, 250, 0.2);
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --focus: #93c5fd;
+  --glow: rgba(96, 165, 250, 0.28);
+  --shadow: 0 120px 200px -140px rgba(96, 165, 250, 0.34);
+  --shadow-soft: 0 80px 160px -120px rgba(96, 165, 250, 0.28);
 
-  --tone-blue: #1d4ed8;
-  --tone-blue-2: #3b82f6;
+  --tone-blue: #60a5fa;
+  --tone-blue-2: #93c5fd;
 
   --section-accent: var(--accent);
   --section-accent-2: var(--tone-blue-2);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --canvas: #08080c;
-    --canvas-subtle: #0d0d13;
-    --surface: #121218;
-    --surface-raised: #181820;
-    --surface-inset: #0c0c11;
-    --overlay: rgba(5, 5, 7, 0.65);
-    --ink: #f7f7fb;
-    --ink-strong: #ffffff;
-    --muted: #c4c4d0;
-    --subtle: #a2a2b2;
-    --line: rgba(247, 247, 251, 0.12);
-    --line-strong: rgba(247, 247, 251, 0.22);
-    --accent: #60a5fa;
-    --accent-ink: #07101f;
-    --accent-subtle: rgba(96, 165, 250, 0.2);
-    --success: #4ade80;
-    --warning: #fbbf24;
-    --danger: #f87171;
-    --focus: #93c5fd;
-    --glow: rgba(96, 165, 250, 0.28);
-    --shadow: 0 120px 200px -140px rgba(96, 165, 250, 0.34);
-    --shadow-soft: 0 80px 160px -120px rgba(96, 165, 250, 0.28);
-
-    --tone-blue: #60a5fa;
-    --tone-blue-2: #93c5fd;
-  }
 }
 
 @theme inline {
@@ -160,7 +130,7 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     background-color: var(--canvas);
-    color-scheme: light dark;
+    color-scheme: dark;
   }
 
   body {
