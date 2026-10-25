@@ -66,4 +66,22 @@ export const engineeringHighlights: EngineeringHighlight[] = [
     draft: false,
     verified: true,
   },
+  {
+    id: "highlight-full-stack-saas",
+    title: "Maintaining full-stack SaaS applications",
+    problem:
+      "Multi-tenant SaaS products require frontend features to work reliably with backend application behavior across client-specific configurations.",
+    constraints: [
+      "Maintain existing production behavior while extending product features.",
+      "Keep implementation details and customer-specific information confidential.",
+    ],
+    approach:
+      "Contributed across frontend and backend code in a multi-tenant SaaS environment, including Node.js application maintenance, bug fixes, and deployment scripting.",
+    tradeoffs: [
+      "Changes across application layers require coordination between user-facing workflows, backend behavior, and release processes.",
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "Node.js", "SaaS", "Shell Scripting"],
+    draft: false,
+    verified: true,
+  },
 ];
