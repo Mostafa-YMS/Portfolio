@@ -19,11 +19,15 @@ export const experiences: Experience[] = [
         verified: true,
       },
       {
+        text: "Integrated frontend product workflows with backend APIs and application services.",
+        verified: true,
+      },
+      {
         text: "Automated deployment pipelines with shell scripting, reducing release time from 30 minutes to 5 minutes (an 83% reduction).",
         verified: true,
       },
     ],
-    technologies: ["React", "Next.js", "TypeScript", "PHP Blade", "Shell Scripting"],
+    technologies: ["React", "Next.js", "TypeScript", "REST API Integration", "PHP Blade", "Shell Scripting"],
   },
   {
     id: "exp-pentavalue",
@@ -40,6 +44,10 @@ export const experiences: Experience[] = [
         verified: true,
       },
       {
+        text: "Worked across frontend and backend systems, including Node.js-based application code, production maintenance, bug fixes, and deployment scripts.",
+        verified: true,
+      },
+      {
         text: "Mentored four junior developers and interns through code reviews and technical guidance.",
         verified: true,
       },
@@ -49,10 +57,6 @@ export const experiences: Experience[] = [
       },
       {
         text: "Collaborated with product owners, project managers, and UI/UX teams to define requirements and deliver features.",
-        verified: true,
-      },
-      {
-        text: "Maintained and extended production frontend and backend systems, resolving bugs and authoring deployment scripts.",
         verified: true,
       },
     ],
